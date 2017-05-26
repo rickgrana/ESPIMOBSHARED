@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Contrapartida</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="texto scroll-bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngIf="(lista != null) && (lista.length == 0)" class="error">
+    Nenhuma contrapartida cadastrada
+  </ion-item>
+  
+  <ion-list>
+                            
+        <ion-item *ngFor="let item of lista" (click)="toggleDetails(item)" text-wrap>
+
+            <h2>
+                    <div icon-left>
+                      
+                      <b>{{item.data.codigo}} - {{item.data.projeto}}</b>
+
+                      <ion-icon *ngIf="item.data.part_dtlida!=null" name="md-checkmark"></ion-icon>
+                    
+                    </div>
+
+                    
+            </h2>
+
+            <h3>Situação:{{item.data.situacao}}</h3>     
+            <p><b>Duração: </b>{{item.data.duracao}}</p>
+           
+            <div *ngIf="item.showDetails">  
+              
+              <p><b>CH: </b>{{item.data.ch}}h</p>
+              <p><b>Horário: </b>{{item.data.horario}}</p>
+            </div>
+                 
+        </ion-item>
+   </ion-list>
+
+</ion-content>

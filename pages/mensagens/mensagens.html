@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Mensagens</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content  class="scroll-bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngIf="mensagens.length == 0" class="error">
+    Nenhuma mensagem a ser exibida
+  </ion-item>
+
+  
+  
+
+  <ion-list>  
+        <ion-item *ngFor="let mensagem of mensagens">
+            <ion-avatar item-left>
+             <ion-icon name="mail"  item-left *ngIf="mensagem.msgb_dtlida==null"></ion-icon>
+             <ion-icon name="mail-open"  item-left *ngIf="mensagem.msgb_dtlida!=null"></ion-icon>
+            </ion-avatar>
+            
+            <span [ngClass]="{naolida: mensagem.msgb_dtlida==null, lida:mensagem.msgb_dtlida!=null}">
+            {{mensagem.msg_titulo}}
+            </span>
+            <p>{{mensagem.msg_data}}</p>
+            <button clear item-right (click)="lerMensagem(mensagem.msg_codigo)">+</button>
+        </ion-item>
+   </ion-list>
+
+</ion-content>

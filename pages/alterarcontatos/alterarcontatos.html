@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar barra>
+    <ion-title>Atualizar contatos</ion-title>
+    </ion-navbar>
+</ion-header>    
+
+<ion-content padding class="scroll-bg">
+ 
+    <form class="list" [formGroup]="form" (submit)="submeter($event)">
+                        
+            <ion-item>
+                <ion-label stacked>Telefone</ion-label>
+                <ion-input type="text" [textMask]="{mask: mask}" [formControl]="telefone"  ></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Celular</ion-label>
+                <ion-input type="text" [textMask]="{mask: maskCel}"  [formControl]="celular" placeholder="celular"  ></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input type="email" [formControl]="email" placeholder="email"  ></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Email Alternativo</ion-label>
+                <ion-input type="email" [formControl]="email2" placeholder="email alternativo"  ></ion-input>
+            </ion-item>
+
+            <button ion-button block color="secondary" type="submit" [disabled]="!form.valid">Confimar</button>
+            
+    </form>
+        
+</ion-content>

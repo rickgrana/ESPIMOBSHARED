@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar barra>
+    <ion-title>Redefinir senha</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="scroll-bg">
+ 
+    <form class="list" [formGroup]="form" (submit)="altersenha($event)">
+                        
+             <ion-item>
+                <ion-label stacked>Nova Senha</ion-label>
+                <ion-input type="password" [formControl]="senha"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Repetir Nova Senha</ion-label>
+                <ion-input type="password" [formControl]="repetir"></ion-input>
+            </ion-item>
+
+            <button  ion-button block color="secondary" type="submit" [disabled]="!form.valid">Alterar senha</button>
+            
+    </form>
+        
+</ion-content>

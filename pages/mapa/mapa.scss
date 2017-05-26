@@ -1,0 +1,27 @@
+#map_canvas {
+    width: 100%;
+    height: 50%;
+}
+
+#directionsPanel{
+    width: 100%;
+    height: 50%;
+    border: solid 1px #ccc;
+}
+
+.ios, .md {
+ 
+  page-mapa {
+ 
+    .scroll-content {
+      height: 100%
+    }
+ 
+    #map {
+      width: 100%;
+      height: 50%;
+    }
+ 
+  }
+ 
+}

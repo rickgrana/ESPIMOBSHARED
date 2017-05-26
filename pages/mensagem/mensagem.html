@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Ler Mensagem</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="texto scroll-bg">
+
+  <ion-item text-wrap>
+    Título: <b><div [innerHTML]="mensagem.msg_titulo"></div></b> <br/>
+    Data: <div [innerHTML]="mensagem.msg_data"></div><br/>
+    
+    <div [innerHTML]="mensagem.msg_texto | safeHtml" style="width:100%"></div><br/>
+  </ion-item>
+  
+</ion-content>

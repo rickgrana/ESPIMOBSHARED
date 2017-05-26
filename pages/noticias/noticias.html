@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Notícias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content  class="main" class="scroll-bg">
+   
+     <ion-list> 
+                       
+            <ion-card  *ngFor="let post of posts" (click)="goToPost(post.ID)">
+
+                <ion-img width="100%" height="225" [src]="post.featured_image.source"></ion-img>
+                
+                <ion-card-content>
+                      
+                    <ion-card-title [innerHTML]="post.title"></ion-card-title>
+                    
+                    <p [innerHTML]="post.excerpt"></p>
+                </ion-card-content>
+             </ion-card>
+              
+        </ion-list>
+</ion-content>

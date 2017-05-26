@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar barra>
+    <ion-title>Redefinir senha</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="scroll-bg">
+ 
+    <form class="list" [formGroup]="form" (submit)="prosseguir($event)">
+                         
+            <ion-item>
+                <ion-label stacked>Selecione seu RG</ion-label>
+                <ion-select  [formControl]="rg">
+                    <ion-option *ngFor="let item of rgOptions" [value]="item.id">{{item.value}}</ion-option>
+                </ion-select>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Selecione seu aniversário</ion-label>
+                <ion-select  [formControl]="nascimento">
+                    <ion-option *ngFor="let item of nascimentoOptions" [value]="item.id">{{item.value}}</ion-option>
+                </ion-select>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Selecione o primeiro nome de sua mãe</ion-label>
+                <ion-select  [formControl]="nomeMae">
+                    <ion-option *ngFor="let item of nomeMaeOptions" [value]="item.id">{{item.value}}</ion-option>
+                </ion-select>
+            </ion-item>
+                         
+            <button ion-button block color="secondary" type="submit" [disabled]="!form.valid">Prosseguir</button>        
+    </form>
+        
+</ion-content>

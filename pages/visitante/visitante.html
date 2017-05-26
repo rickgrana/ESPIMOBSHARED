@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Informações</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="main" class="scroll-bg">
+
+    <ion-grid>
+
+        <ion-row>
+            <ion-col width-50>
+                <div class="center opcao">
+                    <a href="#" (click)="goToAbout()">
+                    <img src='assets/img/icons/sobre.png' class="center opcao" height="70px"/>
+                    SOBRE O {{environment.SISTEMA}}
+                    </a>
+                </div>
+
+            </ion-col>
+
+            <ion-col width-50>
+                <div class="center opcao">
+                    <a href="#" (click)="goToNoticias()">
+                    <img src='assets/img/icons/noticia.png' class="center opcao" height="70px"/>
+                    Notícias
+                    </a>
+                </div>
+
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col width-50>
+                <div class="center opcao">
+                    <a href="#" (click)="goToFAQ()">
+                    <img src='assets/img/icons/perguntas.png' class="center opcao" height="70px"/>
+                    Perguntas Frequentes
+                    </a>
+                </div>
+
+            </ion-col>
+
+            <ion-col width-50>
+                <div class="center opcao">
+                    <a href="#" (click)="goToCronograma()">
+                    <img src='assets/img/icons/cronograma.png' class="center opcao" height="70px"/>
+                    Cronograma
+                    </a>
+                </div>
+
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col width-50>
+                <div class="center opcao">
+                    <a href="#" (click)="goToMapa()">
+                    <img src='assets/img/icons/como_chegar.png' class="center opcao" height="70px"/>
+                    Como Chegar
+                    </a>
+                </div>
+
+            </ion-col>
+
+            <ion-col width-50>
+                <div class="center opcao">
+                    <a href="#" (click)="goToContato()">
+                    <img src='assets/img/icons/fac.png' class="center opcao" height="70px"/>                    
+                    Fale Conosco
+                    </a>
+                </div>
+
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

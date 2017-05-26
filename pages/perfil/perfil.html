@@ -1,0 +1,136 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Perfil</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="scroll-bg">
+    <ion-card>
+
+      <ion-item text-wrap>
+        
+        <div class="text-center">       
+            <img class="img-responsive center-block" src="assets/img/user.png" style="width:32px; margin: auto"/>        
+            <br/>
+            
+            <div style="width:100%; text-align:center">
+                <h2 text-wrap  >{{bolsista.bol_nome}}</h2>
+                <p>CPF {{bolsista.bol_cpf}}</p>
+                <p>Situação: <b>{{bolsista.bol_situacao}}</b></p>
+            </div>
+            
+        </div>
+                
+      </ion-item>
+      
+      <ion-item style="width:100%; text-align:center">
+          
+          <img src="{{bolsista.ies_logo}}" style="width:32px; margin: auto"/>
+         
+          <h2>{{bolsista.ies_sigla}}</h2>
+          <p text-wrap>{{bolsista.cur_nome}}</p>
+          <p>{{bolsista.tur_turno}}</p>
+              
+      </ion-item>
+      
+      
+
+     
+    </ion-card>
+    
+    
+    
+    <ion-card>  
+      <ion-item> 
+          <ion-grid>
+              <ion-row>
+                  <ion-col width-33><p><b>Sexo</b></p></ion-col>    
+                  <ion-col width-67><p><b>Vigência</b></p></ion-col>
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-33><p>{{bolsista.bol_sexo}}</p></ion-col>
+                  <ion-col width-67><p>{{bolsista.vigencia}}</p></ion-col>
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-33><p><b>Bolsa</b></p></ion-col>    
+                  <ion-col width-67><p><b>Modalidade</b></p></ion-col>
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-33><p>{{bolsista.faixa}}</p></ion-col>
+                  <ion-col width-67><p>{{bolsista.modalidade}}</p></ion-col>
+              </ion-row>
+          </ion-grid>
+      </ion-item>
+      
+    </ion-card> 
+    
+    <ion-card>  
+      <ion-item> 
+          <ion-grid>         
+              
+              <ion-row>
+                  <ion-col width-50><p><b>Telefone</b></p></ion-col>    
+                  <ion-col width-50><p><b>Celular</b></p></ion-col>
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-50><p>{{bolsista.bol_telefone}}</p></ion-col>
+                  <ion-col width-50><p>{{bolsista.bol_celular}}</p></ion-col>
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-100><p><b>Email</b></p></ion-col>                  
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-100><p>{{bolsista.bol_email}}</p></ion-col>
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-100><p><b>Email Alternativo</b></p></ion-col>                  
+              </ion-row>
+              
+              <ion-row>
+                  <ion-col width-100 *ngIf="bolsista.bol_email2 != null"><p>{{bolsista.bol_email2}}</p></ion-col>
+                  <ion-col width-100 *ngIf="bolsista.bol_email2 == null"><p>Sem informação</p></ion-col>
+              </ion-row>
+              
+            
+          </ion-grid>
+          
+          
+                    
+      </ion-item>
+      
+      <ion-item> 
+          <button ion-button block type="button" color="primary" clear item-right (click)="goToAtualizar()">
+              Atualizar Contatos
+          </button>  
+      </ion-item>
+      
+      
+    </ion-card>
+    
+    <ion-card>
+
+     
+        <ion-card-content>
+          <p>Caso as informações não estejam corretas, entre em contato com o ESPI pelo número {{ctrl_fone}}.</p>
+        </ion-card-content>
+     
+      
+    </ion-card>
+    
+    <button ion-button block type="button" color="primary" (click)="senha()" href="#">
+            Alterar senha                    
+    </button>
+    
+        <button ion-button block type="button" color="danger" (click)="logout()" href="#">
+            Desconectar                    
+        </button>
+   
+
+</ion-content>

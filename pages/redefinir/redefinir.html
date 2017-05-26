@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Redefinir senha</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="scroll-bg">
+ 
+    <form class="list" [formGroup]="form" (submit)="proximo($event)">
+             
+             Por favor, informe o seu CPF e clique em Prosseguir            
+            <ion-item>
+                <ion-label stacked>CPF</ion-label>
+                <ion-input type="tel" formControlName="cpf" [textMask]="{mask: mask_cpf}"></ion-input>
+            </ion-item>
+                         
+            <button  ion-button block color="secondary" type="submit" [disabled]="!form.valid">Prosseguir</button>            
+    </form>
+        
+</ion-content>

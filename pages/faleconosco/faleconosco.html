@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Fale conosco</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="contato scroll-bg">
+    
+        <ion-icon name="mail"></ion-icon>
+        Utilize o formulário abaixo para nos mandar uma mensagem.<br/>
+       <br/>
+        <form [formGroup]="contatoForm" (submit)="enviar($event)">
+                      
+            <ion-item>
+                <ion-label stacked>Seu nome</ion-label>
+                <ion-input type="text" formControlName="nome"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Seu email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            
+             <ion-item>
+                <ion-label stacked>Mensagem</ion-label>
+                <ion-textarea rows="10" formControlName="mensagem"></ion-textarea>
+            </ion-item>
+            
+          
+
+            <div padding>
+                <button  ion-button block type="submit" [disabled]="!contatoForm.valid">Enviar</button>
+            </div>
+        </form>
+          
+</ion-content>

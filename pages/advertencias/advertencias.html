@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Advertências</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="texto scroll-bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngIf="(lista != null) && (lista.length == 0)" class="error">
+    Nenhuma advertência cadastrada
+  </ion-item>
+  
+  <ion-list>
+
+        <ion-grid>                   
+        <ion-item *ngFor="let item of lista" (click)="toggleDetails(item)" text-wrap>
+            
+            <ion-row>  
+                <ion-col>
+                  <h2 >
+                          <div icon-left>
+                            
+                            <b>{{item.data.projeto}}</b>
+
+                            <ion-icon *ngIf="item.data.adv_dtlida!=null" name="md-checkmark"></ion-icon>
+                          
+                          </div>
+
+                          
+                  </h2>
+
+                </ion-col>
+
+            </ion-row>
+
+            <ion-row>  
+                <ion-col>
+                    <h3><b>Situação: </b>{{item.data.situacao}}</h3>
+                </ion-col>
+            </ion-row>                
+                
+            <ion-row *ngIf="item.showDetails">  
+                <ion-col>
+                  <p><b>Motivo: </b>{{item.data.advm_nome}}</p>     
+                  <p><b>Solicitação: </b>{{item.data.adv_data}}</p>
+                  <p><b>Abertura: </b>{{item.data.adv_dtabertura}}</p>
+                  <p *ngIf="(item.data.adv_processo !== null)"><b>Processo: </b>{{item.data.adv_processo}}</p>    
+                  <p *ngIf="(item.data.adv_processo == null)"><b>Processo: </b>NÃO FOI NECESSÁRIO</p>
+                </ion-col>
+            </ion-row>
+
+        </ion-item>
+        </ion-grid>
+
+   </ion-list>
+
+</ion-content>

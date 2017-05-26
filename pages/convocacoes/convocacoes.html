@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Convocações</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="texto scroll-bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngIf="(lista != null) && (lista.length == 0)" class="error">
+    Nenhuma convocação cadastrada
+  </ion-item>
+  
+  <ion-list>                            
+        <ion-item *ngFor="let item of lista"  (click)="toggleDetails(item)" text-wrap>            
+            
+            <h2>
+                    <div icon-left>
+                      
+                      <b>{{item.data.projeto}}</b>
+
+                      <ion-icon *ngIf="item.data.bconv_dtlida!=null" name="md-checkmark"></ion-icon>
+                    
+                    </div>
+
+                    
+            </h2>
+
+            <p><b>Situação: </b>{{item.data.bconv_situacao}}</p>         
+            
+            <div *ngIf="item.showDetails">
+              <p><b>Convocado em: </b>{{item.data.bconv_data}}</p>
+              <p><b>Comparecer até: </b>{{item.data.bconv_prazo}}</p>  
+            </div>
+                        
+        </ion-item>
+   </ion-list>
+
+</ion-content>

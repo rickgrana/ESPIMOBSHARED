@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notícia</ion-title>
+  </ion-navbar>
+</ion-header>  
+
+<ion-content padding class="artigo scroll-bg">
+    
+    <ion-item>
+      <div id="titulo" [innerHTML]="titulo" text-wrap></div>
+      <div id="noticia" [innerHTML]="texto | safeHtml" text-wrap></div>
+    </ion-item>
+    
+</ion-content>

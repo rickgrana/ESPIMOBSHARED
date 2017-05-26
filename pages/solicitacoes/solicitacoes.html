@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Solicitações Acadêmicas</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="texto scroll-bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngIf="lista.length == 0" class="error">
+    Nenhuma solicitação cadastrada
+  </ion-item>
+  
+  <ion-list>
+
+        <ion-grid>                
+        <ion-item *ngFor="let item of lista" (click)="toggleDetails(item)" text-wrap>
+               
+                            
+              <ion-row>  
+                <ion-col>
+                    
+                 <h2 >
+                    <div icon-left>
+                      
+                      <b>{{item.data.acao}}</b>
+
+                      <ion-icon *ngIf="item.data.slc_dtlida!=null" name="md-checkmark"></ion-icon>
+                    
+                    </div>
+
+                    
+                </h2>
+
+
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-50>
+                    <div text-left [innerHTML]="item.data.situacaoFormatada"></div>
+                </ion-col>
+
+                <ion-col col-50>
+                  <div text-right><b>Nº: </b>#{{item.data.numero}}
+                  
+                  </div>
+                </ion-col>
+              </ion-row>
+            
+              <ion-row *ngIf="item.showDetails">  
+                <ion-col>
+                  <p><b>DATA: </b>{{item.data.data}}</p>
+                  <p><b>CAUSA: </b>{{item.data.causa}}</p>
+                  <p><b>MOTIVO: </b>{{item.data.motivo}}</p>
+                  <p *ngIf="item.data.analise != null"><b>ANÁLISE: </b>{{item.data.analise}}</p>
+                </ion-col>
+              </ion-row>
+                 
+        </ion-item>
+
+        </ion-grid>
+   </ion-list>
+
+</ion-content>

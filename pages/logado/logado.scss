@@ -1,0 +1,25 @@
+page-logado {
+
+}
+
+
+.ion-ios-sistema,
+.ion-ios-sistema-outline,
+.ion-md-sistema,
+.ion-md-sistema-outline{
+    height: 25px;
+    background-size:contain;
+}
+
+.ion-ios-sistema:before,
+.ion-ios-sistema-outline:before,
+.ion-md-sistema:before,
+.ion-md-sistema-outline:before
+{
+    content: url('../assets/img/icons/sistema.jpg') !important;    
+}
+
+.ion-ios-sistema-outline:before,
+.ion-md-sistema-outline:before{
+    opacity: 0.2;
+}

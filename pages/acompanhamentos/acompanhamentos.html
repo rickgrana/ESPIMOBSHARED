@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+    <ion-title>Acompanhamentos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="texto scroll-bg">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngIf="(lista != null) && (lista.length == 0)" class="error">
+    Nenhum acompanhamento cadastrado
+  </ion-item>
+  
+  <ion-list>
+                            
+        <ion-item *ngFor="let item of lista" (click)="toggleDetails(item)" text-wrap>
+            
+            <h2>
+                    <div icon-left>
+                      
+                      <b>Acompanhamento #<b>{{item.data.numero}}</b></b>
+
+                      <ion-icon *ngIf="item.data.vis_dtlida!=null" name="md-checkmark"></ion-icon>
+                    
+                    </div>
+
+                    
+            </h2>  
+
+            <p><b>Situação: </b>{{item.data.situacao}}</p>
+
+            <div *ngIf="item.showDetails">  
+              <h3>Ação:{{item.data.acao}}</h3>     
+              <p><b>Motivo: </b>{{item.data.motivo}}</p>
+              <p><b>Data: </b>{{item.data.data}}</p>
+              <p *ngIf="(item.data.data_visita !=null)"><b>Confirmado para: </b>{{item.data.data_visita}}</p>   
+            </div>
+
+        </ion-item>
+   </ion-list>
+
+</ion-content>
