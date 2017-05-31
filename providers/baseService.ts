@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 //import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 //import { Storage } from '@ionic/storage';
 //import {CacheService} from "ionic-cache/ionic-cache";
 import {AlertController } from 'ionic-angular';
 import { HttpClient } from './http-client';
-import { environment } from '../../app/environment';
+import { EnvVariables } from '../../environments/environment-variables.token';
 
 @Injectable()
 export class BaseService {
   
-  constructor(public httpClient: HttpClient, public alertCtrl: AlertController){
+  constructor(public httpClient: HttpClient, public alertCtrl: AlertController, @Inject(EnvVariables) public environment){
   }
 
   getAuthHttp(url){
-      return this.httpClient.get(environment.API_URL + url)
+      return this.httpClient.get(this.environment.API_URL + url)
         .map(res => res.json());
   }
 

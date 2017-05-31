@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { App, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 import { FaleconoscoPage } from '../faleconosco/faleconosco';
@@ -13,7 +13,7 @@ import { WpService } from '../../providers/wp-service';
 
 import {CacheService} from "ionic-cache/ionic-cache";
 
-import {environment} from "../../../app/environment";
+import { EnvVariables } from '../../../environments/environment-variables.token';
 
 @Component({
   selector: 'page-visitante',
@@ -32,13 +32,14 @@ export class VisitantePage {
       public navCtrl: NavController, public navParams: NavParams, 
       public loadingCtrl: LoadingController, public alertCtrl: AlertController,
       public bolsaProvider: BolsaProvider, wpService: WpService,
-      public cache: CacheService) 
+      public cache: CacheService,
+      @Inject(EnvVariables) public envVariables) 
   {
     this.nav = navCtrl;
     //this.bolsaProvider = bolsaProvider;
     this.wpService = wpService;
 
-    this.environment = environment;
+    this.environment = envVariables;
   }
 
   ionViewDidLoad() {

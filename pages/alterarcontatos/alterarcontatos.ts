@@ -77,10 +77,13 @@ export class AlterarcontatosPage {
                         }                          
                     }]
                 });
+
+                let celular = this.celular.value.replace("_", "");
+                let telefone = this.telefone.value.replace("_", "");
                 
                 // atualiza os dados do bolsista no Provider
-                this.userService.user.bol_celular = this.celular.value;
-                this.userService.user.bol_telefone = this.telefone.value;
+                this.userService.user.bol_celular = celular
+                this.userService.user.bol_telefone = telefone;
                 this.userService.user.bol_email = this.email.value;
                 this.userService.user.bol_email2 = this.email2.value;
                                               

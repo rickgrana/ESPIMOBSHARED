@@ -4,14 +4,6 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { Geolocation } from 'ionic-native';
 
-import {
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapsLatLng,
-  CameraPosition,
-  GoogleMapsMarkerOptions,
-  GoogleMapsMarker
-} from 'ionic-native';
 
 declare var google;
 
@@ -209,7 +201,7 @@ export class MapaPage {
       var request = {
           destination: this.destino,
           origin: latLng,
-          travelMode: google.maps.TravelMode.DRIVING
+          travelMode: google.maps.TravelMode.TRANSIT 
       };
       
       var directionsService = new google.maps.DirectionsService();

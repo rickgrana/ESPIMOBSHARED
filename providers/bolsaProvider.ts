@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AlertController, LoadingController } from 'ionic-angular';
@@ -7,7 +7,7 @@ import 'rxjs/add/operator/startWith';
 import {CacheService} from "ionic-cache/ionic-cache";
 /*import {HttpClient} from '../httpClient';*/
 
-import { environment } from '../../app/environment';
+import { EnvVariables } from '../../environments/environment-variables.token';
 
 @Injectable()
 export class BolsaProvider {
@@ -17,7 +17,8 @@ export class BolsaProvider {
   public info: any;
 
   constructor(public http: Http, private alertCtrl: AlertController, 
-    public loadingCtrl: LoadingController, cache: CacheService) {
+    public loadingCtrl: LoadingController, cache: CacheService,
+    @Inject(EnvVariables) public environment) {
     console.log('Hello Bolsa Provider');
 
     this.cache = cache;

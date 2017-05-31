@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { environment } from '../../app/environment';
+import { EnvVariables } from '../../environments/environment-variables.token';
 
 @Injectable()
 export class WpService {
 
   //wpURL: string;
 
-  constructor(public http: Http) {
+  constructor(public http: Http, @Inject(EnvVariables) public environment) {
     //this.wpURL = 'http://portalespi.manaus.am.gov.br/wp-json/';
   }
 
@@ -22,7 +22,7 @@ export class WpService {
                             .share();;   
       }else{
             */
-            var consulta = this.http.get(environment.WP_API + 'posts?filter[posts_per_page]=8&filter[order]=DESC&status=publish&filter[tag]=' + environment.WP_TAGS)
+            var consulta = this.http.get(this.environment.WP_API + 'posts?filter[posts_per_page]=8&filter[order]=DESC&status=publish&filter[tag]=' + this.environment.WP_TAGS)
                     .map(res => res.json())
             ;
             return consulta;
@@ -31,7 +31,7 @@ export class WpService {
   }
   
   load(id) {    
-    return this.http.get(environment.WP_API + 'posts/' + id)
+    return this.http.get(this.environment.WP_API + 'posts/' + id)
         .map(res => res.json())
        ;   
   }

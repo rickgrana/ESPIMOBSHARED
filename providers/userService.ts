@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
@@ -7,7 +7,7 @@ import {AlertController, LoadingController, Events } from 'ionic-angular';
 import { BolsaProvider } from './bolsaProvider';
 import { HttpClient } from './http-client';
 import { BaseService } from './baseService';
-import { environment } from '../../app/environment';
+import { EnvVariables } from '../../environments/environment-variables.token';
 
 @Injectable()
 export class UserService extends BaseService {
@@ -25,11 +25,13 @@ export class UserService extends BaseService {
     public loadingCtrl: LoadingController,
     public bolsaProvider: BolsaProvider,
     public httpClient: HttpClient,
-    public events: Events) 
+    public events: Events,
+    @Inject(EnvVariables) public environment) 
     {            
-  
    
-     super(httpClient, alertCtrl);
+     super(httpClient, alertCtrl, environment);
+
+     console.log('Construtor UserService');
 
      this.events.subscribe('user:login', (user) => {
 
@@ -83,7 +85,7 @@ export class UserService extends BaseService {
   }
 
   isTokenValido(){
-      return this.http.get(environment.API_URL + 'login/tokenvalido?token=' + this.getToken()).
+      return this.http.get(this.environment.API_URL + 'login/tokenvalido?token=' + this.getToken()).
             map((res) => res.json(), (err) => err.json()).do(x=> console.log('Check Token:', x));
   }
 
@@ -103,7 +105,7 @@ export class UserService extends BaseService {
              
       var data = JSON.stringify({"cpf": username, "senha":password});
       
-      return this.http.post(environment.API_URL + 'login/login', data)
+      return this.http.post(this.environment.API_URL + 'login/login', data)
         .map((res) => res.json(), (err) => err.json());
   }
 
@@ -140,7 +142,7 @@ export class UserService extends BaseService {
   }
 
   getRedefinirDados(cpf){
-      return this.http.get(environment.API_URL + 'login/redefinir_opcoes?cpf=' + cpf).map(
+      return this.http.get(this.environment.API_URL + 'login/redefinir_opcoes?cpf=' + cpf).map(
           res => res.json(), 
           err => {
               if(err.status != 200) { 
@@ -159,7 +161,7 @@ export class UserService extends BaseService {
                     "nomeMae":nomeMae, 
                     "nascimento": nascimento});
        
-      return this.http.post(environment.API_URL + 'login/redefinir_validar?bol_codigo=' + bol_codigo, data)
+      return this.http.post(this.environment.API_URL + 'login/redefinir_validar?bol_codigo=' + bol_codigo, data)
             .map(res => res.json());
   }
   
@@ -169,7 +171,7 @@ export class UserService extends BaseService {
                     "token": token,
                     "senha": novaSenha});
        
-      return this.http.post(environment.API_URL + 'login/redefinir_senha?bol_codigo=' + bol_codigo, data)
+      return this.http.post(this.environment.API_URL + 'login/redefinir_senha?bol_codigo=' + bol_codigo, data)
             .map(res => res.json());
   }
 
@@ -393,7 +395,7 @@ export class UserService extends BaseService {
                     'email2': email2
         });
        
-      return this.httpClient.post(environment.API_URL + 'default/alterar_contatos?bol_codigo=' + this.user.bol_codigo, data)
+      return this.httpClient.post(this.environment.API_URL + 'default/alterar_contatos?bol_codigo=' + this.user.bol_codigo, data)
             .map(res => res.json());
   }
   
