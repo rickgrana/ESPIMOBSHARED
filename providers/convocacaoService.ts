@@ -49,7 +49,8 @@ export class ConvocacaoService extends BaseService {
             (err) => {
                 loader.dismiss();
                 this.handleError(err, 'Erro ao Obter Convocações');
-                return null;
+                
+                return Promise.reject('Erro ao Obter Convocações');
             }            
     );  
 

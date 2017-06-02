@@ -30,6 +30,8 @@
           <h2>{{bolsista.ies_sigla}}</h2>
           <p text-wrap>{{bolsista.cur_nome}}</p>
           <p>{{bolsista.tur_turno}}</p>
+
+          <p *ngIf="environment.SISTEMA == 'PBI'">{{bolsista.data_tipo}}</p>
               
       </ion-item>
       
@@ -88,15 +90,19 @@
               <ion-row>
                   <ion-col width-100><p>{{bolsista.bol_email}}</p></ion-col>
               </ion-row>
+
+              <div *ngIf="environment.SISTEMA != 'PBI'">
               
-              <ion-row>
-                  <ion-col width-100><p><b>Email Alternativo</b></p></ion-col>                  
-              </ion-row>
-              
-              <ion-row>
-                  <ion-col width-100 *ngIf="bolsista.bol_email2 != null"><p>{{bolsista.bol_email2}}</p></ion-col>
-                  <ion-col width-100 *ngIf="bolsista.bol_email2 == null"><p>Sem informação</p></ion-col>
-              </ion-row>
+                <ion-row>
+                    <ion-col width-100><p><b>Email Alternativo</b></p></ion-col>                  
+                </ion-row>
+                
+                <ion-row>
+                    <ion-col width-100 *ngIf="bolsista.bol_email2 != null"><p>{{bolsista.bol_email2}}</p></ion-col>
+                    <ion-col width-100 *ngIf="bolsista.bol_email2 == null"><p>Sem informação</p></ion-col>
+                </ion-row>
+
+              </div>
               
             
           </ion-grid>

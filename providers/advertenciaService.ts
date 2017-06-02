@@ -49,7 +49,8 @@ export class AdvertenciaService extends BaseService {
             (err) => {
                 loader.dismiss();
                 this.handleError(err, 'Erro ao Obter Advertências');
-                return null;
+
+                return Promise.reject('Erro ao Obter Advertências');
             }            
     );  
 

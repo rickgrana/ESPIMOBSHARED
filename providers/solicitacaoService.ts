@@ -53,7 +53,8 @@ export class SolicitacaoService extends BaseService {
             (err) => {
                 loader.dismiss();
                 this.handleError(err, 'Erro ao Obter Solicitações');
-                return null;
+                
+                return Promise.reject('Erro ao Obter Solicitações');
             }            
     );  
 

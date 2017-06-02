@@ -8,7 +8,7 @@
 
 
 <ion-content padding class="texto scroll-bg">
-  <div [innerHTML]="texto" text-wrap></div>
+  <div [innerHTML]="texto | safeHtml" text-wrap></div>
 </ion-content>
 
 

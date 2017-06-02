@@ -43,7 +43,8 @@ export class AcompanhamentoService extends BaseService {
             (err) => {
                 loader.dismiss();
                 this.handleError(err, 'Erro ao Obter Acompanhamentos');
-                return null;
+                
+                return Promise.reject('Erro ao Obter Acompanhamentos');
             }            
     );  
 

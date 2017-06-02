@@ -1,11 +1,17 @@
-import { Component  } from '@angular/core';
+import { Component, Inject  } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
+
+import { AlertController, LoadingController } from 'ionic-angular';
 
 import { BolsaProvider } from '../../providers/bolsaProvider';
 import { UserService } from '../../providers/userService';
 
 import { SenhaPage } from '../senha/senha';
 import { AlterarcontatosPage } from '../alterarcontatos/alterarcontatos';
+
+import {CacheService} from "ionic-cache/ionic-cache";
+
+import { EnvVariables } from '../../../environments/environment-variables.token';
 
 
 
@@ -20,7 +26,11 @@ export class PerfilPage {
   ctrl_fone: string;  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService, 
-    public bolsaProvider: BolsaProvider, public events: Events) {
+    public bolsaProvider: BolsaProvider, public events: Events,
+    public cache: CacheService, 
+    public alertCtrl: AlertController, 
+    public loadingCtrl: LoadingController,   
+    @Inject(EnvVariables) public environment) {
    
    this.bolsista = this.userService.user;
    
@@ -28,11 +38,34 @@ export class PerfilPage {
     this.appInfo = null;
     this.ctrl_fone = null;
     
-    /*this.bolsaProvider.getInfo().subscribe(
-        data => {         
-            this.appInfo = data; 
-            this.ctrl_fone = data.controle.ctrl_fone;  
-    });*/
+    // carrega Valores
+    let key = 'app-info';
+
+    this.cache.getItem(key).catch(() => {
+
+        let loader = this.loadingCtrl.create({
+            content: 'Carregando...'
+        });
+        
+        loader.present();
+
+        return this.bolsaProvider.getInfo().subscribe(
+          data => {
+            this.ctrl_fone = data.controle.ctrl_fone;
+
+            this.bolsaProvider.info = data;              
+            
+            return this.cache.saveItem(key, data);
+          },
+          error => {
+            loader.dismiss();  
+            this.showError(error);
+          });
+    }).then((data) => {
+        console.log("Dados da Aplicação carregados do cache");
+        this.bolsaProvider.info = data;
+        this.ctrl_fone = data.controle.ctrl_fone;
+    });
 
   }
 
@@ -58,6 +91,30 @@ export class PerfilPage {
           'bol_codigo': this.userService.user.bol_codigo,
           'token': this.userService.getToken()
       });
+  }
+
+
+  showError(erro){
+
+    console.log(erro);
+
+    var alert = this.alertCtrl.create({
+              title: 'Atenção',
+              subTitle: 'Não foi possível obter os dados do servidor',
+              buttons: [
+                {
+                    text: 'Tentar novamente',
+                    handler: () => {  
+
+                      alert.dismiss();
+
+                      return false;                                                                                                  
+                    }
+                }
+              ]
+          });
+
+          alert.present();
   }
 
 

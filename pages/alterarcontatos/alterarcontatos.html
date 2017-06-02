@@ -23,7 +23,7 @@
                 <ion-input type="email" [formControl]="email" placeholder="email"  ></ion-input>
             </ion-item>
             
-            <ion-item>
+            <ion-item *ngIf="environment.SISTEMA != 'PBI'">
                 <ion-label stacked>Email Alternativo</ion-label>
                 <ion-input type="email" [formControl]="email2" placeholder="email alternativo"  ></ion-input>
             </ion-item>

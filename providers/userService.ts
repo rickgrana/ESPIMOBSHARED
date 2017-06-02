@@ -202,7 +202,7 @@ export class UserService extends BaseService {
             (err) => {
                 loader.dismiss();
                 this.handleError(err, 'Erro ao Obter Mensagens');
-                return null;
+                return Promise.reject('Erro ao Obter Mensagens');
             }            
     );  
 
@@ -236,156 +236,15 @@ export class UserService extends BaseService {
             (err) => {
                 loader.dismiss();
                 this.handleError(err, 'Erro ao Ler Mensagem');
-                return null;
+                
+                return Promise.reject('Erro ao Obter Mensagem');
             }            
     );  
 
       
   }
 
-  // obtem CONVOCAÇÕES do bolsista
-  /*getConvocacoes(){   
-
-    let loader = this.loadingCtrl.create({
-        content: 'Aguarde...'
-    });
-
-    loader.present();
-
-    return this.getAuthHttp('default/convocacoes?bol_codigo=' + this.user.bol_codigo)        
-        .toPromise()
-        .then(               
-            (data) => {
-                loader.dismiss();           
-                return data;    
-            },
-            (err) => {
-                loader.dismiss();
-                this.handleError(err, 'Erro ao Obter Convocações');
-                return null;
-            }            
-    );
-
-      
-  }*/
-
-
-  // obtem CONTRAPARTIDAS do bolsista
-  /*getContrapartidas(){   
-
-    let loader = this.loadingCtrl.create({
-        content: 'Aguarde...'
-    });
-
-    loader.present();
-
-    return this.getAuthHttp('default/participacoes?bol_codigo=' + this.user.bol_codigo)        
-        .toPromise()
-        .then(               
-            (data) => {
-                loader.dismiss();           
-                return data;
-            },
-            (err) => {
-                loader.dismiss();
-                this.handleError(err, 'Erro ao Obter Contrapartidas');
-                return null;
-            }
-    );
-
-      
-  }*/
-
-
-  // Ler uma Participação selecionada
-  /*lerParticipacao(part_codigo){   
-
-    let loader = this.loadingCtrl.create({
-        content: 'Aguarde...'
-    });
-
-    loader.present();
-    
-    return this.getAuthHttp('default/lerparticipacao?part_codigo='+part_codigo+'&bol_codigo='+this.user.bol_codigo)        
-        .toPromise()
-        .then(              
-            (data) => {
-                loader.dismiss();
-                                
-                this.user.contrap_nao_lidas = data.qtde; // qtde de solicitacoes nao lidas atualizada
-
-                this.events.publish('user:update-messages');
-                            
-                return data;    // mensagem a ser lida
-            },
-            (err) => {
-                loader.dismiss();
-                this.handleError(err, 'Erro ao Ler Participação');
-                return null;
-            }            
-    );  
-
-      
-  }*/
-
-
-
-  // obtem CONTRAPARTIDAS do bolsista
-  /*getAdvertencias(){
-
-    let loader = this.loadingCtrl.create({
-        content: 'Aguarde...'
-    });
-
-    loader.present();
-
-    return this.getAuthHttp('default/advertencias?bol_codigo=' + this.user.bol_codigo)        
-        .toPromise()
-        .then(               
-            (data) => {
-                loader.dismiss();           
-                return data;
-            },
-            (err) => {
-                loader.dismiss();
-                this.handleError(err, 'Erro ao Obter Advertências');
-                return null;
-            }
-    );
-
-      
-  }*/
-
-
-
-  // obtem ACOMPANHAMENTOS do bolsista
-  /*getAcompanhamentos(){
-
-    let loader = this.loadingCtrl.create({
-        content: 'Aguarde...'
-    });
-
-    loader.present();
-
-    return this.getAuthHttp('default/acompanhamentos?bol_codigo=' + this.user.bol_codigo)        
-        .toPromise()
-        .then(               
-            (data) => {
-                loader.dismiss();           
-                return data;
-            },
-            (err) => {
-                loader.dismiss();
-                this.handleError(err, 'Erro ao Obter Acompanhamentos');
-                return null;
-            }
-    );
-
-      
-  }*/
-
-
-
+  
   alterarcontatos(telefone, celular, email, email2){
       
       var data = JSON.stringify({                    
