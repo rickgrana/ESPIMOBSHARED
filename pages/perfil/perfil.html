@@ -28,8 +28,16 @@
           <img src="{{bolsista.ies_logo}}" style="width:32px; margin: auto"/>
          
           <h2>{{bolsista.ies_sigla}}</h2>
-          <p text-wrap>{{bolsista.cur_nome}}</p>
-          <p>{{bolsista.tur_turno}}</p>
+
+          <p *ngIf="environment.SISTEMA == 'PBPG'"><i>UNIDADE: {{bolsista.und_nome}}</i></p>
+
+          <p *ngIf="environment.SISTEMA == 'PBPG'">{{bolsista.form_nome}}</p>
+
+          <p *ngIf="environment.SISTEMA == 'PBPG'">{{bolsista.tur_nome}} / {{bolsista.dia_descricao}}</p>
+
+          <p text-wrap *ngIf="environment.SISTEMA != 'PBPG'">{{bolsista.cur_nome}}</p>
+
+          <p *ngIf="environment.SISTEMA != 'PBPG'">{{bolsista.tur_turno}}</p>
 
           <p *ngIf="environment.SISTEMA == 'PBI'">{{bolsista.data_tipo}}</p>
               
