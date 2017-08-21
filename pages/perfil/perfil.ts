@@ -63,6 +63,7 @@ export class PerfilPage {
           });
     }).then((data) => {
         console.log("Dados da Aplicação carregados do cache");
+        console.log(data);
         this.bolsaProvider.info = data;
         this.ctrl_fone = data.controle.ctrl_fone;
     });

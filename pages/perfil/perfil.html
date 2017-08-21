@@ -29,11 +29,11 @@
          
           <h2>{{bolsista.ies_sigla}}</h2>
 
-          <p *ngIf="environment.SISTEMA == 'PBPG'"><i>UNIDADE: {{bolsista.und_nome}}</i></p>
+          <p text-wrap *ngIf="environment.SISTEMA == 'PBPG'"><i>UNIDADE: {{bolsista.und_nome}}</i></p>
 
-          <p *ngIf="environment.SISTEMA == 'PBPG'">{{bolsista.form_nome}}</p>
+          <p text-wrap *ngIf="environment.SISTEMA == 'PBPG'">{{bolsista.form_nome}}</p>
 
-          <p *ngIf="environment.SISTEMA == 'PBPG'">{{bolsista.tur_nome}} / {{bolsista.dia_descricao}}</p>
+          <p text-wrap *ngIf="environment.SISTEMA == 'PBPG'">{{bolsista.tur_nome}} / {{bolsista.dia_descricao}}</p>
 
           <p text-wrap *ngIf="environment.SISTEMA != 'PBPG'">{{bolsista.cur_nome}}</p>
 
