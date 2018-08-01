@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 //import { ConnectivityService } from '../../providers/connectivity-service';
 import { Network } from '@ionic-native/network';
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 declare var google;
@@ -178,7 +178,7 @@ export class MapaPage {
 
     let loader = this.loader;
  
-    Geolocation.getCurrentPosition().then((position) => {
+    this.geolocation.getCurrentPosition().then((position) => {
  
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 

@@ -121,10 +121,8 @@ export class VisitantePage {
             data => {  
 
                 loader.dismiss();
-
-                this.posts = data;  
                 
-                if(this.posts.length == 0){
+                if(data.count == 0){
                     let alert = this.alertCtrl.create({
                         title: 'Atenção',
                         subTitle: 'Não há notícias a exibir',
@@ -136,6 +134,9 @@ export class VisitantePage {
                     
                     alert.present();
                 }else{
+
+                    this.posts = data.posts;  
+
                     this.nav.push(NoticiasPage, {'posts': this.posts});
                 }                                             
             },

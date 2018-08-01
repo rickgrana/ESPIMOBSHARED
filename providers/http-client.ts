@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, Response} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import { Storage } from '@ionic/storage';
 import {App, Events} from 'ionic-angular';
 // import { LoginPage } from '../pages/login/login';

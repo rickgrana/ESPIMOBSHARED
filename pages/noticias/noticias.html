@@ -10,9 +10,9 @@
    
      <ion-list> 
                        
-            <ion-card  *ngFor="let post of posts" (click)="goToPost(post.ID)">
+            <ion-card  *ngFor="let post of posts" (click)="goToPost(post.id)">
 
-                <ion-img width="100%" height="225" [src]="post.featured_image.source"></ion-img>
+                <ion-img width="100%" height="225" [src]="post.thumbnail"></ion-img>
                 
                 <ion-card-content>
                       

@@ -15,6 +15,9 @@ export class NoticiasPage {
     public loadingCtrl: LoadingController, public alertCtrl: AlertController) 
   {
     this.posts = this.navParams.get("posts");
+
+    console.log(this.posts);
+
     this.wpService = wpService;
   }
 
@@ -32,7 +35,7 @@ export class NoticiasPage {
 
     this.wpService.load(post_id).subscribe(
         data => {
-            this.navCtrl.push(ArtigoPage, {titulo: data.title, texto: data.content});
+            this.navCtrl.push(ArtigoPage, {titulo: data.post.title, texto: data.post.content});
         },
         err => {
                 

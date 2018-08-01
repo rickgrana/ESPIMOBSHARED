@@ -15,7 +15,7 @@
                     <a href="#" (click)="goToMensagens()">
                     <img src='assets/img/icons/mensagens.png' height="70px"/>   
                     <br/>                 
-                    MENSAGENS <ion-badge item-right style="margin-top: 0" *ngIf="mensagens_nao_lidas > 0">{{mensagens_nao_lidas}}</ion-badge>
+                    MENSAGENS <ion-badge item-end style="margin-top: 0" *ngIf="mensagens_nao_lidas > 0">{{mensagens_nao_lidas}}</ion-badge>
                     </a>
                 </div>  
                 
@@ -25,7 +25,7 @@
                 <div class="center opcao">
                     <a href="#" (click)="goToSolicitacoes()">
                         <img src='assets/img/icons/solicitacoes.png' height="70px" style=""/>
-                        <ion-badge item-right *ngIf="solic_nao_lidas > 0">{{solic_nao_lidas}}</ion-badge>   
+                        <ion-badge item-end *ngIf="solic_nao_lidas > 0">{{solic_nao_lidas}}</ion-badge>   
                         <br/>                   
                         SOLICITAÇÕES 
                     </a>
@@ -40,7 +40,7 @@
                     <a href="#" (click)="goToConvocacoes()">
                         <img src='assets/img/icons/convocacoes.png' height="70px"/>
                         <br/>
-                        CONVOCAÇÕES <ion-badge item-right style="margin-top: 0" *ngIf="conv_nao_lidas > 0">{{conv_nao_lidas}}</ion-badge>
+                        CONVOCAÇÕES <ion-badge item-end style="margin-top: 0" *ngIf="conv_nao_lidas > 0">{{conv_nao_lidas}}</ion-badge>
                     </a>
                 </div>
             </ion-col>
@@ -49,7 +49,7 @@
                 <div class="center opcao">
                     <a href="#" (click)="goToContrapartida()">
                         <img src='assets/img/icons/contrapartida.png' height="70px"/>
-                        <ion-badge item-right class="badge" *ngIf="contrap_nao_lidas > 0">{{contrap_nao_lidas}}</ion-badge>
+                        <ion-badge item-end class="badge" *ngIf="contrap_nao_lidas > 0">{{contrap_nao_lidas}}</ion-badge>
                         <br/>
                         CONTRAPARTIDA 
                     </a>
@@ -63,7 +63,7 @@
                     <a href="#" (click)="goToAdvertencias()">
                         <img src='assets/img/icons/advertencias.png' height="70px"/>
                         <br/>
-                        ADVERTÊNCIAS <ion-badge item-right style="margin-top: 0" *ngIf="adv_nao_lidas > 0">{{adv_nao_lidas}}</ion-badge>
+                        ADVERTÊNCIAS <ion-badge item-end style="margin-top: 0" *ngIf="adv_nao_lidas > 0">{{adv_nao_lidas}}</ion-badge>
                     </a>
                 </div>
             </ion-col>
@@ -73,7 +73,7 @@
                     <a href="#" (click)="goToAcompanhamentos()">
                         <img src='assets/img/icons/acompanhamento.png' height="70px"/>
                         <br/>
-                        ACOMPANHAMENTOS <ion-badge item-right style="margin-top: 0" *ngIf="acomp_nao_lidas > 0">{{acomp_nao_lidas}}</ion-badge>
+                        ACOMPANHAMENTOS <ion-badge item-end style="margin-top: 0" *ngIf="acomp_nao_lidas > 0">{{acomp_nao_lidas}}</ion-badge>
                     </a>
                 </div>
             </ion-col>

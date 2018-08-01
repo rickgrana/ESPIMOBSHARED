@@ -22,7 +22,10 @@ export class WpService {
                             .share();;   
       }else{
             */
-            var consulta = this.http.get(this.environment.WP_API + 'posts?filter[posts_per_page]=8&filter[order]=DESC&status=publish&filter[tag]=' + this.environment.WP_TAGS)
+            var consulta = this.http.get(this.environment.WP_API + 
+                //'posts?filter[posts_per_page]=8&filter[order]=DESC&status=publish&filter[tag]=' + 
+                'get_tag_posts/?tag_slug=' + 
+                this.environment.WP_TAGS)
                     .map(res => res.json())
             ;
             return consulta;
@@ -31,7 +34,8 @@ export class WpService {
   }
   
   load(id) {    
-    return this.http.get(this.environment.WP_API + 'posts/' + id)
+    //return this.http.get(this.environment.WP_API + 'posts/' + id)
+    return this.http.get(this.environment.WP_API + 'get_post/?post_id=' + id)
         .map(res => res.json())
        ;   
   }

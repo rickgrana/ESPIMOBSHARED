@@ -16,7 +16,7 @@ export class BolsaProvider {
   public cache: CacheService;
   public info: any;
 
-  constructor(public http: Http, private alertCtrl: AlertController, 
+  constructor(public http: Http, 
     public loadingCtrl: LoadingController, cache: CacheService,
     @Inject(EnvVariables) public environment) {
     console.log('Hello Bolsa Provider');
