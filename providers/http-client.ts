@@ -14,6 +14,8 @@ export class HttpClient {
 
   constructor(public app: App, private http: Http, public storage: Storage, public events: Events) {
     
+    this.http = http;
+    
      this.events.subscribe('jwt:acquire', (jwt) => {         
          this.token = jwt;
          this.storage.set('token', jwt);  

@@ -3,6 +3,8 @@ import 'rxjs/add/operator/map';
 import {CacheService} from "ionic-cache/ionic-cache";
 import {AlertController, LoadingController, Events } from 'ionic-angular';
 import { BolsaProvider } from './bolsaProvider';
+import { Storage } from '@ionic/storage';
+import {Http, Headers} from '@angular/http';
 import { HttpClient } from './http-client';
 import { BaseService } from './baseService';
 import { EnvVariables } from '../../environments/environment-variables.token';
