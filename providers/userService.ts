@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import 'rxjs/add/operator/map';
-import {CacheService} from "ionic-cache/ionic-cache";
+import {CacheService} from "ionic-cache";
 import {AlertController, LoadingController, Events } from 'ionic-angular';
 import { BolsaProvider } from './bolsaProvider';
 import { Storage } from '@ionic/storage';

@@ -7,12 +7,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 declare var google;
 
-/*
-  Generated class for the Mapa page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-mapa',
   templateUrl: 'mapa.html',
@@ -36,87 +30,12 @@ export class MapaPage {
 
     this.apiKey = 'AIzaSyCp_IMgWbMxku4rwIsaBJKonve1GsVMAWk';
 
-    
-    
-    /*
-    let connectSubscription = this.network.onConnect().subscribe(() => {
-
-      console.log('Conectado. Carregando mapa...');
-      this.loadGoogleMaps();
-    });
-    //this.loadGoogleMaps();*/
-
-    //this.loadGoogleMaps();
   }
 
   ngAfterViewInit() {
     //this.loadMap();
-
-    
-
     this.loadGoogleMaps();
   }
-
-  /*loadMap() {
-    // create a new map by passing HTMLElement
-    let element: HTMLElement = document.getElementById('map');
-
-    GoogleMap.isAvailable()
-          .then((isAvailable)=>{
-
-            if(!isAvailable) return console.warn('Maps não disponível');
-
-            let map = new GoogleMap(element);
-
-            // listen to MAP_READY event
-            map.one(GoogleMapsEvent.MAP_READY).then(() => console.log('Map is ready!'));
-
-            // create LatLng object
-            let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(-3.058380, -60.004133);
-
-            // create CameraPosition
-            let position: CameraPosition = {
-              target: ionic,
-              zoom: 12,
-              tilt: 0
-            };
-
-            // move the map's camera to position
-            map.moveCamera(position);
-
-            // create new marker
-            let markerOptions: GoogleMapsMarkerOptions = {
-              position: ionic,
-              title: 'ESPI'
-            };
-
-            map.addMarker(markerOptions)
-              .then((marker: GoogleMapsMarker) => {
-                marker.showInfoWindow();
-              });
-          
-          Geolocation.getCurrentPosition().then((position) => {
-      
-            let p_loc: GoogleMapsLatLng = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
-
-            let markerOptions2: GoogleMapsMarkerOptions = {
-              position: p_loc,
-              title: 'Minha localização'
-            };
-
-             map.addMarker(markerOptions2)
-              .then((marker: GoogleMapsMarker) => {
-                marker.showInfoWindow();
-              });          
-      
-          }, (err) => {
-            console.log(err);
-          });
-
-        });
-
-  }*/
-
 
   /*ionViewDidLoad() {
     console.log('ionViewDidLoad MapaPage');

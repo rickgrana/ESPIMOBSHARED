@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 //import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 //import { Storage } from '@ionic/storage';
-//import {CacheService} from "ionic-cache/ionic-cache";
+//import {CacheService} from "ionic-cache";
 import {AlertController } from 'ionic-angular';
 import { HttpClient } from './http-client';
 import { EnvVariables } from '../../environments/environment-variables.token';

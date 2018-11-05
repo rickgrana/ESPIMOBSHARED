@@ -9,7 +9,7 @@ import { UserService } from '../../providers/userService';
 import { SenhaPage } from '../senha/senha';
 import { AlterarcontatosPage } from '../alterarcontatos/alterarcontatos';
 
-import {CacheService} from "ionic-cache/ionic-cache";
+import {CacheService} from "ionic-cache";
 
 import { EnvVariables } from '../../../environments/environment-variables.token';
 

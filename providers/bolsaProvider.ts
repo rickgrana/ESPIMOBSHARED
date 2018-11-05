@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { AlertController, LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/startWith';
-import {CacheService} from "ionic-cache/ionic-cache";
+import {CacheService} from "ionic-cache";
 /*import {HttpClient} from '../httpClient';*/
 
 import { EnvVariables } from '../../environments/environment-variables.token';

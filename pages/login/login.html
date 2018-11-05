@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><img src='assets/img/header.png'></ion-title>
+    <ion-title><img src='assets/imgs/header.png'></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,7 +12,7 @@
   <form class="list" [formGroup]="form" (submit)="login($event)">
 
             <div style="text-align:center;">
-                <img src="assets/img/logo2.png" width="100%" height="auto">
+                <img src="assets/imgs/logo2.png" width="100%" height="auto">
             </div>
             <div class="spacer" style="height: 50px;"></div>
             <div>
@@ -23,7 +23,7 @@
 
             <ion-item>
                 <ion-label stacked>CPF</ion-label>
-                <ion-input type="tel" formControlName="cpf" [textMask]="{mask: mask_cpf}" ></ion-input>
+                <ion-input type="tel" formControlName="cpf"></ion-input>
             </ion-item>
 
              <ion-item>

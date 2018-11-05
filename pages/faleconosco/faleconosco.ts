@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { IonicPage } from 'ionic-angular';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { BolsaProvider } from '../../providers/bolsaProvider';
 
+@IonicPage()
 @Component({
   selector: 'page-faleconosco',
   templateUrl: 'faleconosco.html'
