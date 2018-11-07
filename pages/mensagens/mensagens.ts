@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Events} from 'ionic-angular';
 import { UserService } from '../../providers/userService';
-//import {MensagemPage} from '../mensagem/mensagem';
+import {MensagemPage} from '../mensagem/mensagem';
 
 @Component({
   selector: 'page-mensagens',
@@ -34,7 +34,7 @@ export class MensagensPage {
     this.userService.lerMensagem(msg_codigo).then(
       (data) => {
         mensagem = data;
-        this.navCtrl.push('MensagemPage', {'mensagem': mensagem });
+        this.navCtrl.push(MensagemPage, {'mensagem': mensagem });
       }
     );    
     

@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { WpService } from '../../providers/wp-service';
-//import { ArtigoPage } from '../artigo/artigo';
-import { IonicPage } from 'ionic-angular';
+import { ArtigoPage } from '../artigo/artigo';
 
-@IonicPage()
 @Component({
   selector: 'page-noticias',
   templateUrl: 'noticias.html'
@@ -37,7 +35,7 @@ export class NoticiasPage {
 
     this.wpService.load(post_id).subscribe(
         data => {
-            this.navCtrl.push('ArtigoPage', {titulo: data.post.title, texto: data.post.content});
+            this.navCtrl.push(ArtigoPage, {titulo: data.post.title, texto: data.post.content});
         },
         err => {
                 

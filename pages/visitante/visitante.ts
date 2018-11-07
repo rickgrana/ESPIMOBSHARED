@@ -1,12 +1,12 @@
 import { Component, Inject } from '@angular/core';
 import { App, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
-//import { FaleconoscoPage } from '../faleconosco/faleconosco';
+import { FaleconoscoPage } from '../faleconosco/faleconosco';
 import { MapaPage } from '../mapa/mapa';
 
-//import { TextoPage } from '../texto/texto';
+import { TextoPage } from '../texto/texto';
 
-//import { NoticiasPage } from '../noticias/noticias';
+import { NoticiasPage } from '../noticias/noticias';
 
 import { BolsaProvider } from '../../providers/bolsaProvider';
 import { WpService } from '../../providers/wp-service';
@@ -77,7 +77,7 @@ export class VisitantePage {
 
 
   goToContato(){    
-    this.nav.push('FaleconoscoPage');
+    this.nav.push(FaleconoscoPage);
   }
 
   goToMapa(){    
@@ -85,14 +85,14 @@ export class VisitantePage {
   }
 
   goToAbout(){
-    this.nav.push('TextoPage', {
+    this.nav.push(TextoPage, {
         'titulo': 'Sobre o Programa',
         'texto': this.bolsaProvider.info.quemsomos
     });
   }
 
    goToFAQ(){    
-    this.nav.push('TextoPage', {
+    this.nav.push(TextoPage, {
         'titulo': 'FAQ',
         'texto': this.bolsaProvider.info.perguntasfrequentes
     });
@@ -100,7 +100,7 @@ export class VisitantePage {
   
   goToCronograma(){
     
-    this.nav.push('TextoPage', {
+    this.nav.push(TextoPage, {
         'titulo': 'Cronograma',
         'texto': this.bolsaProvider.info.calendario    
     });
@@ -137,7 +137,7 @@ export class VisitantePage {
 
                     this.posts = data.posts;  
 
-                    this.nav.push('NoticiasPage', {'posts': this.posts});
+                    this.nav.push(NoticiasPage, {'posts': this.posts});
                 }                                             
             },
             err => {

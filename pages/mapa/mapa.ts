@@ -28,7 +28,7 @@ export class MapaPage {
     public loadingCtrl: LoadingController
     /*, public connectivityService: ConnectivityService*/) {
 
-    this.apiKey = 'AIzaSyCp_IMgWbMxku4rwIsaBJKonve1GsVMAWk';
+    this.apiKey = 'AIzaSyDkUhGVlbcifuP3R_daVeloh0LUJ00QlJk';
 
   }
 
@@ -134,6 +134,9 @@ export class MapaPage {
           loader.dismiss();
       });
  
+    })
+    .catch( error => {
+      loader.dismiss();
     });
 
     
