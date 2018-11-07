@@ -15,12 +15,12 @@ export class HttpClient {
   constructor(public app: App, private http: Http, public storage: Storage, public events: Events) {
     
     this.http = http;
+
+    console.log('Instanciou HttpClient');
     
      this.events.subscribe('jwt:acquire', (jwt) => {         
          this.token = jwt;
          this.storage.set('token', jwt);  
-         
-
          console.log('Token adquirido: ' + jwt) 
      });
 
@@ -30,14 +30,6 @@ export class HttpClient {
         })  
      });
 
-
-     //obtem Token armazenado
-     if(this.token == null){
-      storage.get('token').then((token) => {
-           //this.token = res;
-           this.events.publish('jwt:acquire', token);
-      });
-    }
 
   }
 

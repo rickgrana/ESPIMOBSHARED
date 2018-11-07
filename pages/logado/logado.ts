@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { PainellogadoPage } from '../painellogado/painellogado';
 import { PerfilPage } from '../perfil/perfil';
@@ -16,7 +16,12 @@ export class LogadoPage {
   tab2Root: any = PerfilPage;
   tab3Root: any = VisitantePage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public events: Events) {
+    this.events.subscribe('user:logout', () => {        
+      navCtrl.popToRoot();      
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogadoPage');

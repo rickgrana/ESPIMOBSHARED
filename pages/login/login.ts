@@ -44,6 +44,8 @@ export class LoginPage {
 
       this.cpf = this.form.controls["cpf"];
       this.senha = this.form.controls["senha"]; 
+
+
   }
 
   ionViewDidLoad() {

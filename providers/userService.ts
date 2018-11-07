@@ -31,6 +31,8 @@ export class UserService extends BaseService {
    
      super(httpClient, alertCtrl, environment);
 
+     console.log(this.httpClient);
+
      console.log('Construtor UserService');
 
      this.events.subscribe('user:login', (user) => {
