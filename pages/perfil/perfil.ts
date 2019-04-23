@@ -41,32 +41,34 @@ export class PerfilPage {
     // carrega Valores
     let key = 'app-info';
 
-    this.cache.getItem(key).catch(() => {
 
-        let loader = this.loadingCtrl.create({
-            content: 'Carregando...'
-        });
-        
-        loader.present();
+    this.bolsaProvider.info = 
+        this.cache.getItem(key).catch(() => {
 
-        return this.bolsaProvider.getInfo().subscribe(
-          data => {
-            this.ctrl_fone = data.controle.ctrl_fone;
-
-            this.bolsaProvider.info = data;              
+            let loader = this.loadingCtrl.create({
+                content: 'Carregando...'
+            });
             
-            return this.cache.saveItem(key, data);
-          },
-          error => {
-            loader.dismiss();  
-            this.showError(error);
-          });
-    }).then((data) => {
-        console.log("Dados da Aplicação carregados do cache");
-        console.log(data);
-        this.bolsaProvider.info = data;
-        this.ctrl_fone = data.controle.ctrl_fone;
-    });
+            loader.present();
+
+            return this.bolsaProvider.getInfo().subscribe(
+              data => {
+
+                console.log(data);
+                loader.dismiss();
+
+                this.ctrl_fone = data.controle.ctrl_fone;
+
+                this.bolsaProvider.info = data;              
+                
+                return this.cache.saveItem(key, data);
+              },
+              error => {
+                loader.dismiss();  
+                this.showError(error);
+              });
+
+        });
 
   }
 
