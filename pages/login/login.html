@@ -12,30 +12,43 @@
   <form class="list" [formGroup]="form" (submit)="login($event)">
 
             <div style="text-align:center;">
-                <img src="assets/imgs/logo2.png" width="100%" height="auto">
+                <img src="assets/imgs/logo2.png" width="100%" height="auto"/>
             </div>
             <div class="spacer" style="height: 50px;"></div>
             <div>
-                <p style="text-align:center;">Já sou bolsista!</p>
+                <p style="text-align:center;">Se já for bolsista, efetue login abaixo:</p>
                 <p></p>
             </div>
 
+            <ion-grid>
+                <ion-row>
 
-            <ion-item>
-                <ion-label stacked>CPF</ion-label>
-                <ion-input type="tel" formControlName="cpf"></ion-input>
-            </ion-item>
+                    <ion-col col-12 col-sm col-md-6 offset-md-3>
+                        <ion-item>
+                            <ion-label stacked>CPF</ion-label>
+                            <ion-input type="tel" formControlName="cpf"></ion-input>
+                        </ion-item>
 
-             <ion-item>
-                <ion-label stacked>Senha</ion-label>
-                <ion-input type="password" formControlName="senha"></ion-input>
-            </ion-item>
+                        <ion-item>
+                            <ion-label stacked>Senha</ion-label>
+                            <ion-input type="password" formControlName="senha"></ion-input>
+                        </ion-item>
 
-            <button ion-button block color="secondary" type="submit" [disabled]="!form.valid">Entrar</button>
+                        <button ion-button block color="secondary" type="submit" [disabled]="!form.valid">Entrar</button>
 
-            <button ion-button type="button" block clear small (click)="goToRedefinir()">Esqueci a senha</button>
+                        <button ion-button type="button" block clear small (click)="goToRedefinir()">Esqueci a senha</button>
 
-            <button ion-button block type="button" (click)="goToMainPage()">Não sou Bolsista</button>
+                        <br/>
+
+                        <button ion-button block type="button" (click)="goToMainPage()">Se ainda não for bolsista, clique aqui</button>
+
+                    </ion-col>
+
+                </ion-row>
+
+            </ion-grid>
+
+            
 
 
 
