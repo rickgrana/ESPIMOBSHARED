@@ -25,7 +25,17 @@
       
       <ion-item style="width:100%; text-align:center">
           
-          <img src="http://sgbu.manaus.am.gov.br{{bolsista.ies_logo}}" style="width:32px; margin: auto"/>
+          <div *ngIf="environment.SISTEMA == 'PBU'">  
+            <img src="http://sgbu.manaus.am.gov.br{{bolsista.ies_logo}}" style="width:32px; margin: auto"/>
+          </div>
+
+          <div *ngIf="environment.SISTEMA == 'PBI'">  
+            <img src="http://sgbi.manaus.am.gov.br{{bolsista.ies_logo}}" style="width:32px; margin: auto"/>
+          </div>
+
+          <div *ngIf="environment.SISTEMA == 'PBPG'">  
+            <img src="http://sgbp.manaus.am.gov.br{{bolsista.ies_logo}}" style="width:32px; margin: auto"/>
+          </div>
          
           <h2>{{bolsista.ies_sigla}}</h2>
 
